@@ -1,0 +1,19 @@
+.container {
+    padding: 20px;
+    width: 300px;
+    border-style: solid;
+}
+
+.priceSection {
+    display: flex;
+    flex-direction: row;
+}
+
+.quantityInput {
+    align-self: center;
+    width: 4em;
+}
+
+.priceTag {
+    margin-right: 1em;
+}
