@@ -11,7 +11,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Aprendiendo NEXTJS</h1>
 
     </div>
   )
