@@ -28,6 +28,20 @@ const HARDCODED_SHOPPING_ITEMS = [
         price: 12.00,
         description: `Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion.`
     },
+    {
+        title: "Tourmaline & Tea Tree Bar Soap",
+        id: 5,
+        thumbnailImg: "",
+        price: 12.00,
+        description: `Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion.`
+    },
+    {
+        title: "Tourmaline Unscented Bar Soap",
+        id: 6,
+        thumbnailImg: "",
+        price: 12.00,
+        description: `Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion.`
+    },
 
 ]
 
