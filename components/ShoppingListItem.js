@@ -12,6 +12,16 @@ export default function ShoppingListItem() {
                 <input className={styles.quantityInput} value='1' type='number' />
             </div>
 
+            <div className={styles.descriptionSection}>
+                Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion.
+            </div>
+
+            <div className={styles.actionSection}>
+                <button className={styles.primaryActionButton}>Add to cart</button>
+                <div className={styles.secondaryActionButton}>
+                    <a>Learn More</a>
+                </div>
+            </div>
         </div>
     )
 }

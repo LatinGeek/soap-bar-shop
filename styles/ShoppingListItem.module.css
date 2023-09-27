@@ -5,15 +5,42 @@
 }
 
 .priceSection {
-    display: flex;
-    flex-direction: row;
+    display: table;
+
 }
 
 .quantityInput {
-    align-self: center;
-    width: 4em;
+    width: 3em;
+    text-align: right;
+    display: table-cell;
+    vertical-align: bottom;
 }
 
 .priceTag {
-    margin-right: 1em;
+    width: 4em;
+    display: table-cell;
+    vertical-align: baseline;
+}
+
+.primaryActionButton {
+    padding: 0.75em;
+    background-color: #ead7e5;
+    font-weight: 600;
+    width: 60%;
+    font-size: 1em;
+    
+}
+
+.secondaryActionButton {
+    padding: 0.75em;
+    text-decoration: underline;
+}
+
+.actionSection {
+    text-align: center;
+    display: block;
+}
+
+.descriptionSection {
+    margin-block: 1em;
 }
