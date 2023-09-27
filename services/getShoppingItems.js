@@ -1,4 +1,4 @@
-
+//TODO: Add thumbnail urls
 const HARDCODED_SHOPPING_ITEMS = [
     {
         title: "Tourmaline & Eucalyptus Bar Soap",
@@ -47,6 +47,6 @@ const HARDCODED_SHOPPING_ITEMS = [
 
 export default function getShoppingItems() {
     //TODO: Fetch shopping items from API
-    
+
 
 }
