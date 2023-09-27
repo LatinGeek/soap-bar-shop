@@ -1,0 +1,19 @@
+
+.priceSection {
+    display: table;
+
+}
+
+.quantityInput {
+    width: 3em;
+    text-align: right;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.priceTag {
+    width: 4em;
+    display: table-cell;
+    vertical-align: baseline;
+}
+
