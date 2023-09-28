@@ -1,1 +1,4 @@
-
+.shoppingListItemContainer{
+    display: flex;
+    flex-flow: wrap;
+}
