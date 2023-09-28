@@ -7,10 +7,17 @@
 }
 
 .quantityInput {
-    width: 3em;
     text-align: right;
     display: table-cell;
     vertical-align: bottom;
+}
+
+.inputSmall {
+    width: 3em;
+}
+
+.inputLarge {
+    width: 4em;
 }
 
 .priceTag {
