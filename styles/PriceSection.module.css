@@ -1,7 +1,9 @@
-
 .priceSection {
+    /*
+    Displaying the price tag and the quantity input as cells
+    in a table allows me to align them perfectly vertically.
+    */
     display: table;
-
 }
 
 .quantityInput {
@@ -12,8 +14,7 @@
 }
 
 .priceTag {
-    width: 4em;
+    padding-right: 1em;
     display: table-cell;
     vertical-align: baseline;
 }
-
