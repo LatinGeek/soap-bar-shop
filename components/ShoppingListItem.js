@@ -8,7 +8,7 @@ export default function ShoppingListItem() {
             <Image alt='thumbnail' layout='responsive' width={500} height={200} src={"/images/test-soap-thumbnails/tourmaline-&-argan-oil-bar-soap.png"}></Image>
             <h3>Tourmaline & Eucalyptus Bar Soap</h3>
 
-            <PriceSection />
+            <PriceSection unitPrice={12.00} quantity={1} />
 
             <div className={styles.descriptionSection}>
                 Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion.
