@@ -4,13 +4,19 @@ import { useState } from 'react';
 
 export default function PriceSection({ unitPrice, quantity }) {
 
+    function handleValueUpdate(event) {
+        if (event.target.value >= 0) {
+            updateQuantity(event.target.value);
+        }
+    }
+
     const [getQuantity, updateQuantity] = useState(quantity);
 
 
     return (
         <div className={styles.priceSection}>
             <h3 className={styles.priceTag}>${(unitPrice * getQuantity).toFixed(2)}</h3>
-            <input onChange={e => updateQuantity(e.target.value)} className={styles.quantityInput} value={getQuantity} type='number' />
+            <input onChange={handleValueUpdate} className={styles.quantityInput} value={getQuantity} type='number' />
         </div>
     )
 }
