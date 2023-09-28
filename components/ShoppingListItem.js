@@ -30,7 +30,7 @@ export default function ShoppingListItem({ title, description, price, thumbnailI
 
                 <h3>
                     {getTitle}
-                    <button className={styles.editButton} onClick={() => { setEditOverlay(true); setTimeout(() => ref.current.focus(), 50); }}>
+                    <button className={styles.editButton} onClick={() => { setEditOverlay(true); setTimeout(() => ref.current.focus(), 150); }}>
                         <Image alt="Edit button" src="/edit.svg" width={15} height={15} />
                     </button>
                 </h3>
