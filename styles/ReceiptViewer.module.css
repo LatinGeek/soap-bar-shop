@@ -1,19 +1,16 @@
 .receiptContainer {
-    font-size: small;
+    bottom: 0;
+    position: fixed;
+    opacity: 0.9;
     border-radius: 15px 15px 0px 0px;
     background-color: black;
-    opacity: 0.9;
-    width: 60%;
-    position: fixed;
-    bottom: 0;
-    right: 0;
 }
 
 .receiptTable {
     width: 100%;
     text-align: center;
+    color: white;
     padding: 10px;
-    color:white;
 }
 
 .tableHeader {
@@ -21,6 +18,34 @@
 }
 
 .tableTotalCell {
-    font-size: large;
     font-weight: 600;
+}
+
+.tableTotalCell {
+    font-size: x-large;
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .receiptContainer {
+        font-size: small;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1200px) {
+    .receiptContainer {
+        font-size: small;
+        width: 75%;
+        right: 0;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .receiptContainer {
+        font-size: normal;
+        width: 60%;
+        right: 0;
+    }
 }
