@@ -13,6 +13,12 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
         setQuantity(quantity);
     }
 
+    function handleTitleEdit(event) {
+        var updatedTitle = event.target.value;
+        setTitle(updatedTitle);
+        handleShoppingCartUpdate({ id, title: updatedTitle, description, price, thumbnailImg, titleFontSize }, quantity);
+    }
+
     return (
 
         <div className={styles.container}>
@@ -21,7 +27,7 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
                 <div className={styles.inputOverlay} />
 
                 <div className={styles.inputEditContainer}>
-                    <input ref={ref} className={styles.inputEdit} type='text' onKeyDown={(e) => e.key == 'Enter' ? setEditOverlay(false) : ''} onChange={(e) => setTitle(e.target.value)} value={getTitle} />
+                    <input ref={ref} className={styles.inputEdit} type='text' onKeyDown={(e) => e.key == 'Enter' ? setEditOverlay(false) : ''} onChange={handleTitleEdit} value={getTitle} />
                     <div>
                         <button className={styles.confirmEditButton} onClick={() => setEditOverlay(false)}>
                             <Image alt="Confirm edit button" src="/tick.svg" width={30} height={30} />
@@ -48,7 +54,7 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
                 </div>
 
                 <div className={styles.actionSection}>
-                    <button className={styles.primaryActionButton} onClick={() => handleShoppingCartUpdate({ id, title, description, price, thumbnailImg, titleFontSize }, quantity)}>Add to cart</button>
+                    <button className={styles.primaryActionButton} onClick={() => handleShoppingCartUpdate({ id, title: getTitle, description, price, thumbnailImg, titleFontSize }, quantity)}>Add to cart</button>
                     <div className={styles.secondaryActionButton}>
                         <a>Learn More</a>
                     </div>
