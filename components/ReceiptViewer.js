@@ -28,7 +28,7 @@ export default function ReceiptViewer({ shoppingCart }) {
                         <th>Subtotal</th>
                     </tr>
                 </thead>
-                {[...shoppingCart.keys()].map(id => {
+                {[...shoppingCart.keys()].filter((id) => shoppingCart.get(id).quantity > 0).map(id => {
                     return (
                         <tr key={id}>
                             <td>{shoppingCart.get(id).item.title}</td>
