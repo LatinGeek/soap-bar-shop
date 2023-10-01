@@ -1,5 +1,6 @@
-.shoppingListItemContainer{
+.shoppingListItemContainer {
     display: flex;
     flex-flow: wrap;
     margin-bottom: 20em;
+    padding-top: 3em;
 }

@@ -1,0 +1,15 @@
+.tableCell {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.container {
+    background-color: black;
+    width: 100%;
+    align-content: center;
+    border-radius: 0px 0px 10px 10px;
+    display: grid;
+    position: fixed;
+    place-items: center;
+    z-index: 1;
+}

@@ -25,7 +25,6 @@ export default function Home() {
       </Head>
 
       <FontSizeSelector setFontSize={setFontSize} />
-
       <div className={styles.shoppingListItemContainer}>
         {getShoppingItems().map(item => (
           <ShoppingListItem
