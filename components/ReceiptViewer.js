@@ -12,7 +12,6 @@ export default function ReceiptViewer({ shoppingCart }) {
             shoppingCart.forEach((value, key) => {
                 total = total + (value.item.price * value.quantity);
             });
-            console.log("ejecutado");
             return total;
         }
         setTotalPrice(calculateTotalPrice());
