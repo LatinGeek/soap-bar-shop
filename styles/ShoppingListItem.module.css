@@ -24,7 +24,10 @@
     font-weight: 600;
     width: 60%;
     font-size: 1em;
+}
 
+.primaryActionButton:active {
+    background-color: #e8b3da;
 }
 
 .itemImageContainer {
