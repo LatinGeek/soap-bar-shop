@@ -39,6 +39,7 @@
     height: 100%;
     background-color: black;
     opacity: 0.8;
+    z-index: 2;
 }
 
 .inputEditContainer {
@@ -51,6 +52,7 @@
     opacity: 1;
     display: flex;
     flex-flow: row;
+    z-index: 3;
 }
 
 .editButton {
@@ -97,8 +99,13 @@
 .actionSection {
     text-align: center;
     display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .descriptionSection {
     margin-block: 1em;
+    margin-bottom: 6em;
 }
