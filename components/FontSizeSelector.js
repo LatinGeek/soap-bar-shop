@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import styles from '../styles/fontSizeSelector.module.css'
-import PriceSection from './PriceSection';
-import { useRef, useState } from 'react';
 
 export default function FontSizeSelector({ minFontSize, maxFontSize, step, setFontSize }) {
 
