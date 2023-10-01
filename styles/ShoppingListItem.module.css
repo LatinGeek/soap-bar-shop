@@ -15,6 +15,10 @@
 
 }
 
+.itemImageContainer {
+    text-align: center;
+}
+
 .inputOverlay {
     position: absolute;
     top: 0;

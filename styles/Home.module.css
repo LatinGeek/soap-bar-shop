@@ -1,4 +1,5 @@
 .shoppingListItemContainer{
     display: flex;
     flex-flow: wrap;
+    margin-bottom: 20em;
 }
