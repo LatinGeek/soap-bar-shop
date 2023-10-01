@@ -15,8 +15,10 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
 
     function handleTitleEdit(event) {
         var updatedTitle = event.target.value;
-        setTitle(updatedTitle);
-        handleShoppingCartUpdate({ id, title: updatedTitle, description, price, thumbnailImg, titleFontSize }, quantity);
+        if (updatedTitle != '') {
+            setTitle(updatedTitle);
+            handleShoppingCartUpdate({ id, title: updatedTitle, description, price, thumbnailImg, titleFontSize }, quantity);
+        }
     }
 
     return (
