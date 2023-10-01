@@ -9,6 +9,7 @@ import ReceiptViewer from '../components/ReceiptViewer'
 const MAX_FONT_SIZE = 30;
 const MIN_FONT_SIZE = 10;
 const FONT_SIZE_STEP = 1;
+const INITIAL_ITEM_QUANTITY = 1;
 
 export default function Home() {
   const [fontSize, setFontSize] = useState(14)
@@ -48,6 +49,7 @@ export default function Home() {
             description={item.description}
             price={item.price}
             thumbnailImg={item.thumbnailImg}
+            initialQuantity={INITIAL_ITEM_QUANTITY}
             handleShoppingCartUpdate={handleShoppingCartUpdate}
           />
 
