@@ -1,0 +1,26 @@
+.receiptContainer {
+    font-size: small;
+    border-radius: 15px 15px 0px 0px;
+    background-color: black;
+    opacity: 0.9;
+    width: 60%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.receiptTable {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color:white;
+}
+
+.tableHeader {
+    border-bottom: 1px solid white;
+}
+
+.tableTotalCell {
+    font-size: large;
+    font-weight: 600;
+}
