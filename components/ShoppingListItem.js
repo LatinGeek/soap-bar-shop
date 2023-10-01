@@ -3,7 +3,7 @@ import styles from '../styles/ShoppingListItem.module.css'
 import PriceSection from './PriceSection';
 import { useRef, useState } from 'react';
 
-export default function ShoppingListItem({ title, description, price, thumbnailImg }) {
+export default function ShoppingListItem({ title, description, price, thumbnailImg, titleFontSize }) {
     const [editOverlay, setEditOverlay] = useState(false)
     const [getTitle, setTitle] = useState(title);
     const ref = useRef(null);
@@ -28,7 +28,7 @@ export default function ShoppingListItem({ title, description, price, thumbnailI
             <div>
                 <Image alt='thumbnail' layout='responsive' width={500} height={200} src={thumbnailImg}></Image>
 
-                <h3>
+                <h3 style={{ fontSize: titleFontSize }}>
                     {getTitle}
                     <button className={styles.editButton} onClick={() => { setEditOverlay(true); setTimeout(() => ref.current.focus(), 150); }}>
                         <Image alt="Edit button" src="/edit.svg" width={15} height={15} />
