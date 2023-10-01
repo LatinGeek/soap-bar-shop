@@ -3,10 +3,15 @@ import styles from '../styles/ShoppingListItem.module.css'
 import PriceSection from './PriceSection';
 import { useRef, useState } from 'react';
 
-export default function ShoppingListItem({ title, description, price, thumbnailImg, titleFontSize }) {
+export default function ShoppingListItem({ id, title, description, price, thumbnailImg, titleFontSize, handleShoppingCartUpdate }) {
     const [editOverlay, setEditOverlay] = useState(false)
+    const [quantity, setQuantity] = useState(1)
     const [getTitle, setTitle] = useState(title);
     const ref = useRef(null);
+
+    function handleQuantityUpdate(quantity) {
+        setQuantity(quantity);
+    }
 
     return (
 
@@ -26,8 +31,9 @@ export default function ShoppingListItem({ title, description, price, thumbnailI
             </div>
 
             <div>
-                <Image alt='thumbnail' layout='responsive' width={500} height={200} src={thumbnailImg}></Image>
-
+                <div className={styles.itemImageContainer}>
+                    <Image alt='thumbnail' width={250} height={150} src={thumbnailImg}></Image>
+                </div>
                 <h3 style={{ fontSize: titleFontSize }}>
                     {getTitle}
                     <button className={styles.editButton} onClick={() => { setEditOverlay(true); setTimeout(() => ref.current.focus(), 150); }}>
@@ -35,19 +41,19 @@ export default function ShoppingListItem({ title, description, price, thumbnailI
                     </button>
                 </h3>
 
-                <PriceSection unitPrice={price} quantity={1} />
+                <PriceSection handleQuantityUpdate={handleQuantityUpdate} unitPrice={price} quantity={quantity} />
 
                 <div className={styles.descriptionSection}>
                     {description}
                 </div>
 
                 <div className={styles.actionSection}>
-                    <button className={styles.primaryActionButton}>Add to cart</button>
+                    <button className={styles.primaryActionButton} onClick={() => handleShoppingCartUpdate({ id, title, description, price, thumbnailImg, titleFontSize }, quantity)}>Add to cart</button>
                     <div className={styles.secondaryActionButton}>
                         <a>Learn More</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
