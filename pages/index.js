@@ -7,14 +7,17 @@ import { useState } from 'react'
 import FontSizeSelector from '../components/FontSizeSelector'
 import ReceiptViewer from '../components/ReceiptViewer'
 
+const MAX_FONT_SIZE = 30;
+const MIN_FONT_SIZE = 10;
+const FONT_SIZE_STEP = 1;
+
 export default function Home() {
   const [fontSize, setFontSize] = useState(14)
   const [shoppingCart, updateShoppingCart] = useState(new Map());
+
   function handleShoppingCartUpdate(item, quantity) {
     updateShoppingCart(new Map(shoppingCart.set(item.id, { item, quantity })))
   }
-
-
 
   return (
     <div >
@@ -24,7 +27,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <FontSizeSelector setFontSize={setFontSize} />
+      <FontSizeSelector
+        minFontSize={MIN_FONT_SIZE}
+        maxFontSize={MAX_FONT_SIZE}
+        step={FONT_SIZE_STEP}
+        setFontSize={setFontSize} />
+
       <div className={styles.shoppingListItemContainer}>
         {getShoppingItems().map(item => (
           <ShoppingListItem
@@ -42,6 +50,7 @@ export default function Home() {
       </div>
 
       <ReceiptViewer shoppingCart={shoppingCart} />
+
     </div>
   )
 }
