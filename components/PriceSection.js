@@ -9,8 +9,8 @@ export default function PriceSection({ unitPrice, quantity, handleQuantityUpdate
 
     function handleValueUpdate(event) {
         if (event.target.value >= 0 && event.target.value <= MAX_AMOUNT) {
-            updateQuantity(event.target.value);
-            handleQuantityUpdate(event.target.value);
+            updateQuantity(Math.round(event.target.value));
+            handleQuantityUpdate(Math.round(event.target.value));
         }
     }
 
