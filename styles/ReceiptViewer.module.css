@@ -27,6 +27,7 @@
     opacity: 0.9;
     border-radius: 15px 15px 0px 0px;
     background-color: black;
+    z-index: 2;
 }
 
 .receiptTable {
