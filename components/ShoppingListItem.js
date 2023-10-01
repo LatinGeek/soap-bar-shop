@@ -3,9 +3,9 @@ import styles from '../styles/ShoppingListItem.module.css'
 import PriceSection from './PriceSection';
 import { useRef, useState } from 'react';
 
-export default function ShoppingListItem({ id, title, description, price, thumbnailImg, titleFontSize, handleShoppingCartUpdate }) {
+export default function ShoppingListItem({ id, title, description, price, thumbnailImg, titleFontSize, initialQuantity, handleShoppingCartUpdate, handleShoppingItemUpdate }) {
     const [editOverlay, setEditOverlay] = useState(false)
-    const [quantity, setQuantity] = useState(1)
+    const [quantity, setQuantity] = useState(initialQuantity)
     const [getTitle, setTitle] = useState(title);
     const ref = useRef(null);
 
@@ -17,7 +17,7 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
         var updatedTitle = event.target.value;
         if (updatedTitle != '') {
             setTitle(updatedTitle);
-            handleShoppingCartUpdate({ id, title: updatedTitle, description, price, thumbnailImg, titleFontSize }, quantity);
+            handleShoppingItemUpdate({ id, title: updatedTitle, description, price, thumbnailImg, titleFontSize });
         }
     }
 
@@ -56,7 +56,7 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
                 </div>
 
                 <div className={styles.actionSection}>
-                    <button className={styles.primaryActionButton} onClick={() => handleShoppingCartUpdate({ id, title: getTitle, description, price, thumbnailImg, titleFontSize }, quantity)}>Add to cart</button>
+                    <button className={styles.primaryActionButton} onClick={() => handleShoppingCartUpdate(id, quantity)}>Add to cart</button>
                     <div className={styles.secondaryActionButton}>
                         <a>Learn More</a>
                     </div>

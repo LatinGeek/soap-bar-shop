@@ -1,7 +1,7 @@
 import styles from '../styles/ReceiptViewer.module.css'
 import { useEffect, useState } from 'react';
 
-export default function ReceiptViewer({ shoppingCart }) {
+export default function ReceiptViewer({ shoppingCart, shoppingItems }) {
     const [totalPrice, setTotalPrice] = useState(0);
 
 
@@ -9,13 +9,13 @@ export default function ReceiptViewer({ shoppingCart }) {
     useEffect(() => {
         function calculateTotalPrice() {
             var total = 0;
-            shoppingCart.forEach((value, key) => {
-                total = total + (value.item.price * value.quantity);
+            shoppingCart.forEach((item, id) => {
+                total = total + (shoppingItems.get(id).price * item.quantity);
             });
             return total;
         }
         setTotalPrice(calculateTotalPrice());
-    }, [shoppingCart])
+    }, [shoppingCart, shoppingItems])
 
 
     return (
@@ -31,9 +31,9 @@ export default function ReceiptViewer({ shoppingCart }) {
                 {[...shoppingCart.keys()].filter((id) => shoppingCart.get(id).quantity > 0).map(id => {
                     return (
                         <tr key={id}>
-                            <td>{shoppingCart.get(id).item.title}</td>
+                            <td>{shoppingItems.get(id).title}</td>
                             <td>{shoppingCart.get(id).quantity}</td>
-                            <td>${(shoppingCart.get(id).item.price * shoppingCart.get(id).quantity).toFixed(2)}</td>
+                            <td>${(shoppingItems.get(id).price * shoppingCart.get(id).quantity).toFixed(2)}</td>
                         </tr>
                     )
                 })}

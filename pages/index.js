@@ -13,16 +13,18 @@ const INITIAL_ITEM_QUANTITY = 1;
 
 export default function Home() {
   const [fontSize, setFontSize] = useState(14)
+  //Retrieve shopping items from service.
   const [shoppingCart, updateShoppingCart] = useState(new Map());
-  const [shoppingItems, updateShoppingItems] = useState([]);
+  const [shoppingItems, updateShoppingItems] = useState(new Map(getShoppingItems().map(item => [item.id, item])));
 
-  //Retrieve shopping items from service once.
-  useEffect(() => {
-    updateShoppingItems(getShoppingItems());
-  }, [])
 
-  function handleShoppingCartUpdate(item, quantity) {
-    updateShoppingCart(new Map(shoppingCart.set(item.id, { item, quantity })))
+
+  function handleShoppingCartUpdate(id, quantity) {
+    updateShoppingCart(new Map(shoppingCart.set(id, { quantity })))
+  }
+
+  function handleShoppingItemUpdate(item) {
+    updateShoppingItems(new Map(shoppingItems.set(item.id, item)))
   }
 
   return (
@@ -40,23 +42,24 @@ export default function Home() {
         setFontSize={setFontSize} />
 
       <div className={styles.shoppingListItemContainer}>
-        {shoppingItems.map(item => (
+        {[...shoppingItems.keys()].map(id => (
           <ShoppingListItem
             titleFontSize={fontSize}
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            price={item.price}
-            thumbnailImg={item.thumbnailImg}
+            key={id}
+            id={id}
+            title={shoppingItems.get(id).title}
+            description={shoppingItems.get(id).description}
+            price={shoppingItems.get(id).price}
+            thumbnailImg={shoppingItems.get(id).thumbnailImg}
             initialQuantity={INITIAL_ITEM_QUANTITY}
             handleShoppingCartUpdate={handleShoppingCartUpdate}
+            handleShoppingItemUpdate={handleShoppingItemUpdate}
           />
 
         ))}
       </div>
 
-      <ReceiptViewer shoppingCart={shoppingCart} />
+      <ReceiptViewer shoppingCart={shoppingCart} shoppingItems={shoppingItems} />
 
     </div>
   )
