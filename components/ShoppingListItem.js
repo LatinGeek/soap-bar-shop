@@ -3,6 +3,8 @@ import styles from '../styles/ShoppingListItem.module.css'
 import PriceSection from './PriceSection';
 import { useRef, useState } from 'react';
 
+const TITLE_CHAR_LIMIT = 50;
+
 export default function ShoppingListItem({ id, title, description, price, thumbnailImg, titleFontSize, initialQuantity, handleShoppingCartUpdate, handleShoppingItemUpdate }) {
     const [editOverlay, setEditOverlay] = useState(false)
     const [quantity, setQuantity] = useState(initialQuantity)
@@ -15,7 +17,7 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
 
     function handleTitleEdit(event) {
         var updatedTitle = event.target.value;
-        if (updatedTitle != '') {
+        if (updatedTitle != '' && updatedTitle.length < TITLE_CHAR_LIMIT) {
             setTitle(updatedTitle);
             handleShoppingItemUpdate({ id, title: updatedTitle, description, price, thumbnailImg, titleFontSize });
         }
