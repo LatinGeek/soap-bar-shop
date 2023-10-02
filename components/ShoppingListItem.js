@@ -44,7 +44,7 @@ export default function ShoppingListItem({ id, title, description, price, thumbn
                 <div className={styles.itemImageContainer}>
                     <Image alt='thumbnail' width={250} height={150} src={thumbnailImg}></Image>
                 </div>
-                <h3 style={{ fontSize: titleFontSize }}>
+                <h3 style={{ fontSize: titleFontSize }} className={styles.itemTitle}>
                     {getTitle}
                     <button className={styles.editButton} onClick={() => { setEditOverlay(true); setTimeout(() => ref.current.focus(), 150); }}>
                         <Image alt="Edit button" src="/edit.svg" width={15} height={15} />
